@@ -1,0 +1,20 @@
+task dumpMethods {
+    doLast {
+        def jarFile = new File("${System.getProperty('user.home')}/.gradle/caches/fabric-loom/1.21.11/minecraft-client.jar")
+        if (!jarFile.exists()) {
+            println "No client jar found"
+            return
+        }
+        def cl = new URLClassLoader([jarFile.toURI().toURL()] as URL[], null)
+        try {
+            def clazz = cl.loadClass("net.minecraft.client.gui.hud.InGameHud")
+            clazz.getDeclaredMethods().each { m ->
+                if (m.name.toLowerCase().contains("render")) {
+                    println "METHOD: " + m.name + " " + m.getParameterTypes().collect { it.name }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace()
+        }
+    }
+}

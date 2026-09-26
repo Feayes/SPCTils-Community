@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "spctils",
+  "version": "1.0",
+  "name": "SPCTils",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/spctils/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "fabric-datagen": [
+      "com.reveth.spctils.client.SpctilsDataGenerator"
+    ],
+    "client": [
+      "com.reveth.spctils.client.SpctilsClient"
+    ],
+    "main": [
+      "com.reveth.spctils.Spctils"
+    ]
+  },
+  "mixins": [
+    "spctils.mixins.json",
+    {
+      "config": "spctils.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "fabric-api": "*",
+    "minecraft": "1.21.11"
+  }
+}

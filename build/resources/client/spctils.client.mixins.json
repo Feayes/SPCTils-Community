@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.reveth.spctils.mixin.client",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "BossBarHudAccessor",
+    "BossBarHudMixin",
+    "dailyquest.InGameHudMixin",
+    "packetrecorder.ClientConnectionMixin",
+    "rpghud.HideVanillaHudMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}
